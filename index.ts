@@ -1,5 +1,22 @@
-const url = process.env.DATABASE_URL;
+import express from "express";
+import dotenv from "dotenv"
+import { prisma } from "./lib/db";
 
-console.log("database_url", url);
+dotenv.config();
 
-console.log("Hello via Bun!");
+const app = express();
+const port = process.env.PORT || 5000;
+
+
+app.get("/:code", async (req, res) => {
+    const code = req.params.code;
+    try {
+        const origial_url = prisma.Url.findUnique({
+            where:{
+                short_url:code,
+            }
+        })
+
+
+    }
+})

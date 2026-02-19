@@ -10,7 +10,14 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+url      = env("DATABASE_URL")
+}
 
+model User { 
+  id Int @id @default(autoincrement())
+  name String
+  email String
+  Urls Url[]
 }
 
 model Url { 
@@ -19,5 +26,6 @@ model Url {
   short_url String
   clicks Int
   timeStamp DateTime @default(now())
+  author  User @relation(fields: [id],references: [id])
 }
 
