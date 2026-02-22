@@ -6,6 +6,7 @@ import cors from "cors";
 import Redirect from "./routes/Redirect";
 import cookieparser from "cookie-parser";
 import CreateRoute from "./routes/Create";
+import Getlinks from "./routes/getlinks";
 
 dotenv.config();
 
@@ -14,8 +15,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL, // Replace with your frontend's actual origin (protocol, host, and port)
-  credentials: true, // Only if your app uses cookies or authentication
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
 }));
 app.use(express.json());
 app.use(cookieparser());
@@ -73,6 +74,7 @@ app.get("/health", async (req, res) => {
     });
   }
 });
+app.use('/api', Getlinks)
 app.listen(port, () => {
   console.log(`Server is listening on http://localhost:${port}/`);
 });
