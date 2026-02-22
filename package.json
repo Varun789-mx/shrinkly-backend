@@ -12,8 +12,8 @@
   },
   "scripts": {
     "dev": "bun --watch src/index.ts",
-    "migrate:dev": "bunx prisma migrate dev",
-    "migrate:prod": "bunx prisma migrate deploy",
+    "migrate:dev": "bun prisma migrate dev",
+    "migrate:prod": "bun prisma migrate deploy",
     "build":"bun build src/ --outdir ./dist --target bun",
     "start":"bun run dist/src/index.js"
   },
