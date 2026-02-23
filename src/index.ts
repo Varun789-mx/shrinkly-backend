@@ -34,7 +34,8 @@ app.use(async (req, res, next) => {
       })
       res.cookie("anon_id", userId, {
         httpOnly: true,
-        sameSite: "lax",
+        sameSite: "none",
+        secure: true
       })
       return res.json({ message: "New user created succesfully" })
     } else {
