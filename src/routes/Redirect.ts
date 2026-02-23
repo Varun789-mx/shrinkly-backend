@@ -35,7 +35,7 @@ router.get("/:code", async (req, res) => {
                     },
                 },
             });
-            //   res.redirect(result?.original_url);
+              res.redirect(result?.original_url);
             return res.status(200).json({
                 original_url: result.original_url,
             });
